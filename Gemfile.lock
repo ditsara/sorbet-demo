@@ -169,6 +169,10 @@ GEM
       actionpack (>= 3.1)
       railties (>= 3.1)
       slim (>= 3.0, < 5.0)
+    sorbet (0.4.4525)
+      sorbet-static (= 0.4.4525)
+    sorbet-runtime (0.4.4525)
+    sorbet-static (0.4.4525-universal-darwin-14)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -221,6 +225,8 @@ DEPENDENCIES
   rspec-rails (~> 3.8)
   sass-rails (~> 5.0)
   slim-rails
+  sorbet
+  sorbet-runtime
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3

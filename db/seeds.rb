@@ -1,3 +1,4 @@
+# typed: strict
 acct_ar = Account.create! name: "Accounts Receivable"
 acct_rv = Account.create! name: "Revenue"
 acct_bk = Account.create! name: "Bank"

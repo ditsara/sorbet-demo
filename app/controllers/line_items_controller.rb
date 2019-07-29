@@ -1,3 +1,4 @@
+# typed: false
 class LineItemsController < ApplicationController
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
 

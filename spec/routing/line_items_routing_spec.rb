@@ -1,3 +1,4 @@
+# typed: false
 require "rails_helper"
 
 RSpec.describe LineItemsController, type: :routing do

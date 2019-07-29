@@ -1,3 +1,4 @@
+# typed: false
 FactoryBot.define do
   factory :line_item do
     narrative { "MyString" }
