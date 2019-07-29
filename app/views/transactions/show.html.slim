@@ -1,0 +1,26 @@
+p#notice = notice
+
+p
+  strong Narrative:
+  = @transaction.narrative
+p
+  strong Status:
+  = @transaction.status
+
+
+table
+  thead
+    tr
+      th Narrative
+      th Amount
+      th Account
+  tbody
+    - @transaction.line_items.each do |item|
+      tr
+        td = item.narrative
+        td = item.amount
+        td = item.account&.name
+
+=> link_to 'Edit', edit_transaction_path(@transaction)
+'|
+=< link_to 'Back', transactions_path

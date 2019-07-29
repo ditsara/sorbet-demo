@@ -1,0 +1,40 @@
+script[src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"]
+
+script src="/javascripts/nested_form.js"
+
+= nested_form_for @transaction do |f|
+  - if @transaction.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@transaction.errors.count, "error")} prohibited this transaction from being saved:"
+      ul
+        - @transaction.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :narrative
+    = f.text_field :narrative
+  .field
+    = f.label :status
+    = f.collection_select :status, Transaction.statuses, :first, :first
+
+  hr
+  h2 line items
+  = f.fields_for :line_items do |l|
+    section
+      .field
+        = l.label :narrative
+        = l.text_field :narrative
+      .field
+        = l.label :amount
+        = l.number_field :amount
+      .field
+        = l.label :account_id
+        = l.collection_select :account_id, Account.all, :id, :name
+      = l.link_to_remove "Delete Line Item"
+
+  = f.link_to_add "Add Line Item", :line_items
+
+  hr
+  .actions = f.submit

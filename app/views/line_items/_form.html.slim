@@ -1,0 +1,21 @@
+= form_for @line_item do |f|
+  - if @line_item.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@line_item.errors.count, "error")} prohibited this line_item from being saved:"
+      ul
+        - @line_item.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :narrative
+    = f.text_field :narrative
+  .field
+    = f.label :amount
+    = f.text_field :amount
+  .field
+    = f.label :account
+    = f.text_field :account
+  .field
+    = f.label :transaction
+    = f.text_field :transaction
+  .actions = f.submit

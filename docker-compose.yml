@@ -1,0 +1,19 @@
+version: '3'
+services:
+  web:
+    image: ditsara/rails-docker:2.6-dev
+    ports:
+      - "3000:3000"
+        # environment:
+        #   - BUNDLE_PATH=/bundles
+        #   - BUNDLE_BIN=/bundles/bin
+        #   - GEM_HOME=/bundles
+        #   - PATH=/bundles/bin:$PATH
+    volumes:
+      - .:/app:cached
+      - bundles:/bundles
+    working_dir: /app
+    command: bundle exec rails server -b 0.0.0.0
+
+volumes:
+  bundles:

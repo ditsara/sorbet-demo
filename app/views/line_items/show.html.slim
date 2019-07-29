@@ -1,0 +1,18 @@
+p#notice = notice
+
+p
+  strong Narrative:
+  = @line_item.narrative
+p
+  strong Amount:
+  = @line_item.amount
+p
+  strong Account:
+  = @line_item.account
+p
+  strong Transaction:
+  = @line_item.transaction
+
+=> link_to 'Edit', edit_line_item_path(@line_item)
+'|
+=< link_to 'Back', line_items_path
